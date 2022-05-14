@@ -53,7 +53,7 @@ namespace ContourAnalysisNS
         static int[] filter4 = { -1, 1, -1, 1 };
 
         /// <summary>
-        /// Calc wavelets convolution for ACF
+        /// Расчет свертки вейвлетов для АКФ
         /// </summary>
         public void CalcAutoCorrDescriptions()
         {

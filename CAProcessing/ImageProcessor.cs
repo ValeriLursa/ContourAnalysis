@@ -75,15 +75,15 @@ namespace ContourAnalysisNS
             //
             this.binarizedFrame = grayFrame;
 
-            //dilate canny contours for filtering
+            //расширить хитрые контуры для фильтрации
             if (cannyFrame != null)
                 cannyFrame = cannyFrame.Dilate(3);
 
-            //find contours
+            //найти контуры
             var sourceContours = grayFrame.FindContours(Emgu.CV.CvEnum.CHAIN_APPROX_METHOD.CV_CHAIN_APPROX_NONE, Emgu.CV.CvEnum.RETR_TYPE.CV_RETR_LIST);
-            //filter contours
+            //фильтрация контура
             contours = FilterContours(sourceContours, cannyFrame, grayFrame.Width, grayFrame.Height);
-            //find templates
+            //найти шаблоны
             lock (foundTemplates)
                 foundTemplates.Clear();
             samples.Clear();
