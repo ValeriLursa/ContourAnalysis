@@ -125,7 +125,8 @@ namespace ContourAnalysisDemo
 
                     frameCount++;
                     //
-                    //processor.ProcessImage(frame);
+                    processor.ProcessImage(frame);
+                    //
                 }
                     if (cbShowBinarized.Checked)
                         ibMain.Image = processor.binarizedFrame;
@@ -344,13 +345,14 @@ namespace ContourAnalysisDemo
         private void button2_Click(object sender, EventArgs e)
         {
             processor.ProcessImage(frame);
+            string text = "";
             foreach (FoundTemplateDesc found in processor.foundTemplates)
             {
                 Rectangle foundRect = found.sample.contour.SourceBoundingRect;
                 Point p1 = new Point((foundRect.Left + foundRect.Right) / 2, foundRect.Top);
-                string text = found.template.name;
-                Console.WriteLine(text);
+                text += found.template.name;
             }
+            Console.WriteLine(text);
         }
     }
 }
