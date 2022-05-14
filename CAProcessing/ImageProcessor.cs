@@ -53,18 +53,18 @@ namespace ContourAnalysisNS
         public void ProcessImage(Image<Gray, byte> grayFrame)
         {
             if (equalizeHist)
-                grayFrame._EqualizeHist();//autocontrast
-            //smoothed
+                grayFrame._EqualizeHist();//автоконтраст
+            //сглаживание
             Image<Gray, byte> smoothedGrayFrame = grayFrame.PyrDown();
             smoothedGrayFrame = smoothedGrayFrame.PyrUp();
-            //canny
+            //хитрый
             Image<Gray, byte> cannyFrame = null;
             if (noiseFilter)
                 cannyFrame = smoothedGrayFrame.Canny(new Gray(cannyThreshold), new Gray(cannyThreshold));
-            //smoothing
+            //сглаживание
             if (blur)
                 grayFrame = smoothedGrayFrame;
-            //binarize
+            //бинаризация
             CvInvoke.cvAdaptiveThreshold(grayFrame, grayFrame, 255, Emgu.CV.CvEnum.ADAPTIVE_THRESHOLD_TYPE.CV_ADAPTIVE_THRESH_MEAN_C, Emgu.CV.CvEnum.THRESH.CV_THRESH_BINARY, adaptiveThresholdBlockSize + adaptiveThresholdBlockSize % 2 + 1, adaptiveThresholdParameter);
             //
             grayFrame._Not();
@@ -112,9 +112,9 @@ namespace ContourAnalysisNS
 
         private static void FilterByIntersection(ref List<FoundTemplateDesc> templates)
         {
-            //sort by area
+            //сортировать по области
             templates.Sort(new Comparison<FoundTemplateDesc>((t1, t2) => -t1.sample.contour.SourceBoundingRect.Area().CompareTo(t2.sample.contour.SourceBoundingRect.Area())));
-            //exclude templates inside other templates
+            //исключить шаблоны внутри других шаблонов
             HashSet<int> toDel = new HashSet<int>();
             for (int i = 0; i < templates.Count; i++)
             {
@@ -130,13 +130,13 @@ namespace ContourAnalysisNS
                         double a = templates[j].sample.contour.SourceBoundingRect.Area();
                         if (a / bigArea > 0.9d)
                         {
-                            //choose template by rate
+                            //выбрать шаблон по курсу
                             if (templates[i].rate > templates[j].rate)
                                 toDel.Add(j);
                             else
                                 toDel.Add(i);
                         }
-                        else//delete tempate
+                        else//удалить шаблон
                             toDel.Add(j);
                     }
                 }
