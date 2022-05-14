@@ -39,7 +39,6 @@
             this.nudMinACF = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.cbAllowAngleMore45 = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.nudMinICF = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -50,6 +49,7 @@
             this.nudMinContourArea = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbAdaptiveNoiseFilter = new System.Windows.Forms.CheckBox();
             this.nudAdaptiveThBlockSize = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.cbBlur = new System.Windows.Forms.CheckBox();
@@ -71,9 +71,10 @@
             this.btSaveTemplates = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.btCreateTemplate = new System.Windows.Forms.ToolStripButton();
-            this.btAutoGenerate = new System.Windows.Forms.ToolStripButton();
             this.btTemplateEditor = new System.Windows.Forms.ToolStripButton();
-            this.cbAdaptiveNoiseFilter = new System.Windows.Forms.CheckBox();
+            this.btAutoGenerate = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ibMain)).BeginInit();
             this.pnSettings.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,9 +121,9 @@
             this.cbShowBinarized.AutoSize = true;
             this.cbShowBinarized.Location = new System.Drawing.Point(6, 178);
             this.cbShowBinarized.Name = "cbShowBinarized";
-            this.cbShowBinarized.Size = new System.Drawing.Size(101, 17);
+            this.cbShowBinarized.Size = new System.Drawing.Size(164, 17);
             this.cbShowBinarized.TabIndex = 21;
-            this.cbShowBinarized.Text = "Show binarized ";
+            this.cbShowBinarized.Text = "Показать в бинарном виде";
             this.cbShowBinarized.UseVisualStyleBackColor = true;
             // 
             // cbShowContours
@@ -130,9 +131,9 @@
             this.cbShowContours.AutoSize = true;
             this.cbShowContours.Location = new System.Drawing.Point(95, 155);
             this.cbShowContours.Name = "cbShowContours";
-            this.cbShowContours.Size = new System.Drawing.Size(97, 17);
+            this.cbShowContours.Size = new System.Drawing.Size(120, 17);
             this.cbShowContours.TabIndex = 20;
-            this.cbShowContours.Text = "Show contours";
+            this.cbShowContours.Text = "Показать контуры";
             this.cbShowContours.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -149,7 +150,7 @@
             this.groupBox3.Size = new System.Drawing.Size(182, 128);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Recognition parameters";
+            this.groupBox3.Text = "Параметры распознавания";
             // 
             // nudMaxACFdesc
             // 
@@ -203,29 +204,20 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 59);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Min. ACF";
+            this.label5.Text = "Мин. АСФ";
             // 
             // cbAllowAngleMore45
             // 
             this.cbAllowAngleMore45.AutoSize = true;
             this.cbAllowAngleMore45.Location = new System.Drawing.Point(7, 105);
             this.cbAllowAngleMore45.Name = "cbAllowAngleMore45";
-            this.cbAllowAngleMore45.Size = new System.Drawing.Size(109, 17);
+            this.cbAllowAngleMore45.Size = new System.Drawing.Size(133, 17);
             this.cbAllowAngleMore45.TabIndex = 6;
-            this.cbAllowAngleMore45.Text = "Allow angles > 45";
+            this.cbAllowAngleMore45.Text = "Разрешить углы > 45";
             this.cbAllowAngleMore45.UseVisualStyleBackColor = true;
             this.cbAllowAngleMore45.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Max. ACF descriptor deviation";
             // 
             // nudMinICF
             // 
@@ -261,9 +253,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(100, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Min. ICF";
+            this.label4.Text = "Мин. ИСФ";
             // 
             // groupBox2
             // 
@@ -278,7 +270,7 @@
             this.groupBox2.Size = new System.Drawing.Size(182, 91);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Contour filtration";
+            this.groupBox2.Text = "Контурная фильтрация";
             // 
             // nudMinDefinition
             // 
@@ -304,9 +296,9 @@
             this.cbNoiseFilter.AutoSize = true;
             this.cbNoiseFilter.Location = new System.Drawing.Point(6, 64);
             this.cbNoiseFilter.Name = "cbNoiseFilter";
-            this.cbNoiseFilter.Size = new System.Drawing.Size(75, 17);
+            this.cbNoiseFilter.Size = new System.Drawing.Size(96, 17);
             this.cbNoiseFilter.TabIndex = 11;
-            this.cbNoiseFilter.Text = "Noise filter";
+            this.cbNoiseFilter.Text = "Фильтр шума";
             this.cbNoiseFilter.UseVisualStyleBackColor = true;
             this.cbNoiseFilter.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
@@ -315,9 +307,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Min. contour length";
+            this.label2.Text = "Мин. длина контура";
             // 
             // nudMinContourLength
             // 
@@ -360,9 +352,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(97, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
+            this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Min. contour area";
+            this.label3.Text = "Мин. площадь контура";
             // 
             // groupBox1
             // 
@@ -380,7 +372,20 @@
             this.groupBox1.Size = new System.Drawing.Size(177, 146);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Source";
+            this.groupBox1.Text = "Источник";
+            // 
+            // cbAdaptiveNoiseFilter
+            // 
+            this.cbAdaptiveNoiseFilter.AutoSize = true;
+            this.cbAdaptiveNoiseFilter.Checked = true;
+            this.cbAdaptiveNoiseFilter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAdaptiveNoiseFilter.Location = new System.Drawing.Point(105, 123);
+            this.cbAdaptiveNoiseFilter.Name = "cbAdaptiveNoiseFilter";
+            this.cbAdaptiveNoiseFilter.Size = new System.Drawing.Size(96, 17);
+            this.cbAdaptiveNoiseFilter.TabIndex = 13;
+            this.cbAdaptiveNoiseFilter.Text = "Фильтр шума";
+            this.cbAdaptiveNoiseFilter.UseVisualStyleBackColor = true;
+            this.cbAdaptiveNoiseFilter.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
             // nudAdaptiveThBlockSize
             // 
@@ -410,9 +415,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(8, 106);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 13);
+            this.label7.Size = new System.Drawing.Size(184, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Adaptive threshold block size";
+            this.label7.Text = "Размер блока адаптивного порога";
             // 
             // cbBlur
             // 
@@ -421,20 +426,20 @@
             this.cbBlur.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbBlur.Location = new System.Drawing.Point(106, 84);
             this.cbBlur.Name = "cbBlur";
-            this.cbBlur.Size = new System.Drawing.Size(44, 17);
+            this.cbBlur.Size = new System.Drawing.Size(78, 17);
             this.cbBlur.TabIndex = 6;
-            this.cbBlur.Text = "Blur";
+            this.cbBlur.Text = "Размытие";
             this.cbBlur.UseVisualStyleBackColor = true;
             this.cbBlur.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 37);
+            this.label1.Location = new System.Drawing.Point(-5, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(113, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Cam resolution";
+            this.label1.Text = "Разрешение камеры";
             // 
             // cbCaptureFromCam
             // 
@@ -443,9 +448,9 @@
             this.cbCaptureFromCam.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCaptureFromCam.Location = new System.Drawing.Point(11, 16);
             this.cbCaptureFromCam.Name = "cbCaptureFromCam";
-            this.cbCaptureFromCam.Size = new System.Drawing.Size(124, 17);
+            this.cbCaptureFromCam.Size = new System.Drawing.Size(113, 17);
             this.cbCaptureFromCam.TabIndex = 2;
-            this.cbCaptureFromCam.Text = "Capture from camera";
+            this.cbCaptureFromCam.Text = "Захват с камеры";
             this.cbCaptureFromCam.UseVisualStyleBackColor = true;
             this.cbCaptureFromCam.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
@@ -470,7 +475,7 @@
             this.btLoadImage.Name = "btLoadImage";
             this.btLoadImage.Size = new System.Drawing.Size(68, 35);
             this.btLoadImage.TabIndex = 5;
-            this.btLoadImage.Text = "Recognize image ...";
+            this.btLoadImage.Text = "Распознать образ из файла...";
             this.btLoadImage.UseVisualStyleBackColor = true;
             this.btLoadImage.Click += new System.EventHandler(this.btLoadImage_Click);
             // 
@@ -479,9 +484,9 @@
             this.cbAutoContrast.AutoSize = true;
             this.cbAutoContrast.Location = new System.Drawing.Point(11, 84);
             this.cbAutoContrast.Name = "cbAutoContrast";
-            this.cbAutoContrast.Size = new System.Drawing.Size(89, 17);
+            this.cbAutoContrast.Size = new System.Drawing.Size(96, 17);
             this.cbAutoContrast.TabIndex = 1;
-            this.cbAutoContrast.Text = "Auto contrast";
+            this.cbAutoContrast.Text = "Автоконтраст";
             this.cbAutoContrast.UseVisualStyleBackColor = true;
             this.cbAutoContrast.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
@@ -490,9 +495,9 @@
             this.cbShowAngle.AutoSize = true;
             this.cbShowAngle.Location = new System.Drawing.Point(6, 155);
             this.cbShowAngle.Name = "cbShowAngle";
-            this.cbShowAngle.Size = new System.Drawing.Size(87, 17);
+            this.cbShowAngle.Size = new System.Drawing.Size(102, 17);
             this.cbShowAngle.TabIndex = 0;
-            this.cbShowAngle.Text = "Show angles";
+            this.cbShowAngle.Text = "Показать углы";
             this.cbShowAngle.UseVisualStyleBackColor = true;
             this.cbShowAngle.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
@@ -511,36 +516,36 @@
             // lbFPS
             // 
             this.lbFPS.AutoSize = false;
-            this.lbFPS.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.lbFPS.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.lbFPS.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.lbFPS.Name = "lbFPS";
             this.lbFPS.Size = new System.Drawing.Size(52, 17);
-            this.lbFPS.Text = "0 fps";
+            this.lbFPS.Text = "0 фпс";
             // 
             // lbContoursCount
             // 
             this.lbContoursCount.AutoSize = false;
-            this.lbContoursCount.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.lbContoursCount.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.lbContoursCount.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.lbContoursCount.Name = "lbContoursCount";
             this.lbContoursCount.Size = new System.Drawing.Size(120, 17);
-            this.lbContoursCount.Text = "Total Contours: ";
+            this.lbContoursCount.Text = "Всего контуров:";
             this.lbContoursCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbRecognized
             // 
             this.lbRecognized.AutoSize = false;
-            this.lbRecognized.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)
-                        | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.lbRecognized.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.lbRecognized.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.lbRecognized.Name = "lbRecognized";
             this.lbRecognized.Size = new System.Drawing.Size(150, 17);
-            this.lbRecognized.Text = "Recognized Contours: ";
+            this.lbRecognized.Text = "Распознанные контуры:";
             this.lbRecognized.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // splitter1
@@ -566,8 +571,8 @@
             this.btSaveTemplates,
             this.toolStripSeparator,
             this.btCreateTemplate,
-            this.btAutoGenerate,
-            this.btTemplateEditor});
+            this.btTemplateEditor,
+            this.btAutoGenerate});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(713, 25);
@@ -581,7 +586,7 @@
             this.btNewTemplates.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btNewTemplates.Name = "btNewTemplates";
             this.btNewTemplates.Size = new System.Drawing.Size(23, 22);
-            this.btNewTemplates.Text = "New templates";
+            this.btNewTemplates.Text = "Новый набор";
             this.btNewTemplates.Click += new System.EventHandler(this.btNewTemplates_Click);
             // 
             // btOpenTemplates
@@ -591,7 +596,7 @@
             this.btOpenTemplates.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btOpenTemplates.Name = "btOpenTemplates";
             this.btOpenTemplates.Size = new System.Drawing.Size(23, 22);
-            this.btOpenTemplates.Text = "Open templates";
+            this.btOpenTemplates.Text = "Открыть набор";
             this.btOpenTemplates.Click += new System.EventHandler(this.btOpenTemplates_Click);
             // 
             // btSaveTemplates
@@ -601,7 +606,7 @@
             this.btSaveTemplates.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btSaveTemplates.Name = "btSaveTemplates";
             this.btSaveTemplates.Size = new System.Drawing.Size(23, 22);
-            this.btSaveTemplates.Text = "Save templates";
+            this.btSaveTemplates.Text = "Сохранить набор";
             this.btSaveTemplates.Click += new System.EventHandler(this.btSaveTemplates_Click);
             // 
             // toolStripSeparator
@@ -616,8 +621,18 @@
             this.btCreateTemplate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btCreateTemplate.Name = "btCreateTemplate";
             this.btCreateTemplate.Size = new System.Drawing.Size(23, 22);
-            this.btCreateTemplate.Text = "Create template";
+            this.btCreateTemplate.Text = "Добавить шаблон";
             this.btCreateTemplate.Click += new System.EventHandler(this.btCreateTemplate_Click);
+            // 
+            // btTemplateEditor
+            // 
+            this.btTemplateEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btTemplateEditor.Image = ((System.Drawing.Image)(resources.GetObject("btTemplateEditor.Image")));
+            this.btTemplateEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btTemplateEditor.Name = "btTemplateEditor";
+            this.btTemplateEditor.Size = new System.Drawing.Size(23, 22);
+            this.btTemplateEditor.Text = "Редактировать набор";
+            this.btTemplateEditor.Click += new System.EventHandler(this.btTemplateEditor_Click);
             // 
             // btAutoGenerate
             // 
@@ -627,43 +642,41 @@
             this.btAutoGenerate.Name = "btAutoGenerate";
             this.btAutoGenerate.Size = new System.Drawing.Size(23, 22);
             this.btAutoGenerate.Text = "Auto generate templates";
+            this.btAutoGenerate.Visible = false;
             this.btAutoGenerate.Click += new System.EventHandler(this.btAutoGenerate_Click);
             // 
-            // btTemplateEditor
+            // button1
             // 
-            this.btTemplateEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btTemplateEditor.Image = ((System.Drawing.Image)(resources.GetObject("btTemplateEditor.Image")));
-            this.btTemplateEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btTemplateEditor.Name = "btTemplateEditor";
-            this.btTemplateEditor.Size = new System.Drawing.Size(23, 22);
-            this.btTemplateEditor.Text = "Template viewer";
-            this.btTemplateEditor.Click += new System.EventHandler(this.btTemplateEditor_Click);
+            this.button1.Location = new System.Drawing.Point(621, 429);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cbAdaptiveNoiseFilter
+            // label6
             // 
-            this.cbAdaptiveNoiseFilter.AutoSize = true;
-            this.cbAdaptiveNoiseFilter.Checked = true;
-            this.cbAdaptiveNoiseFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAdaptiveNoiseFilter.Location = new System.Drawing.Point(105, 123);
-            this.cbAdaptiveNoiseFilter.Name = "cbAdaptiveNoiseFilter";
-            this.cbAdaptiveNoiseFilter.Size = new System.Drawing.Size(75, 17);
-            this.cbAdaptiveNoiseFilter.TabIndex = 13;
-            this.cbAdaptiveNoiseFilter.Text = "Noise filter";
-            this.cbAdaptiveNoiseFilter.UseVisualStyleBackColor = true;
-            this.cbAdaptiveNoiseFilter.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(190, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Макс. отклонение дескриптора ACF";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 452);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ibMain);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnSettings);
             this.Controls.Add(this.ssMain);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
-            this.Text = "Contour Analysis Demo";
+            this.Text = "Распознавание текста";
             ((System.ComponentModel.ISupportInitialize)(this.ibMain)).EndInit();
             this.pnSettings.ResumeLayout(false);
             this.pnSettings.PerformLayout();
@@ -714,7 +727,6 @@
         private System.Windows.Forms.NumericUpDown nudMinICF;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudMinACF;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nudMaxACFdesc;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -735,6 +747,8 @@
         private System.Windows.Forms.ToolStripButton btAutoGenerate;
         private System.Windows.Forms.CheckBox cbShowBinarized;
         private System.Windows.Forms.CheckBox cbAdaptiveNoiseFilter;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
     }
 }
 

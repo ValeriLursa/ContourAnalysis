@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvTemplates = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cbPreferredAngle = new System.Windows.Forms.CheckBox();
             this.btDelete = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,8 +42,8 @@
             this.dgvTemplates.AllowUserToAddRows = false;
             this.dgvTemplates.AllowUserToDeleteRows = false;
             this.dgvTemplates.AllowUserToResizeRows = false;
-            this.dgvTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvTemplates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvTemplates.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTemplates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTemplates.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -59,38 +59,23 @@
             this.dgvTemplates.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvTemplates_CellValuePushed);
             this.dgvTemplates.SelectionChanged += new System.EventHandler(this.dgvTemplates_SelectionChanged);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.FillWeight = 1F;
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 40;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Templates";
+            this.label1.Text = "Шаблоны";
             // 
             // cbPreferredAngle
             // 
             this.cbPreferredAngle.AutoSize = true;
-            this.cbPreferredAngle.Location = new System.Drawing.Point(289, 251);
+            this.cbPreferredAngle.Location = new System.Drawing.Point(278, 222);
             this.cbPreferredAngle.Name = "cbPreferredAngle";
-            this.cbPreferredAngle.Size = new System.Drawing.Size(154, 17);
+            this.cbPreferredAngle.Size = new System.Drawing.Size(211, 17);
             this.cbPreferredAngle.TabIndex = 3;
-            this.cbPreferredAngle.Text = "Preferred angle no more 90";
+            this.cbPreferredAngle.Text = "Предпочтительный угол не более 90";
             this.cbPreferredAngle.UseVisualStyleBackColor = true;
             this.cbPreferredAngle.CheckedChanged += new System.EventHandler(this.cbPreferredAngle_CheckedChanged);
             // 
@@ -100,9 +85,24 @@
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(99, 23);
             this.btDelete.TabIndex = 4;
-            this.btDelete.Text = "Delete template";
+            this.btDelete.Text = "Удалить шаблон";
             this.btDelete.UseVisualStyleBackColor = true;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.FillWeight = 1F;
+            this.Column1.HeaderText = "Номер";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Расшифровка";
+            this.Column2.Name = "Column2";
             // 
             // TemplateEditor
             // 
@@ -116,7 +116,7 @@
             this.DoubleBuffered = true;
             this.MinimumSize = new System.Drawing.Size(606, 318);
             this.Name = "TemplateEditor";
-            this.Text = "Template Editor";
+            this.Text = "Редактировать набор шаблонов";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTemplates)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,9 +127,9 @@
 
         private System.Windows.Forms.DataGridView dgvTemplates;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.CheckBox cbPreferredAngle;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

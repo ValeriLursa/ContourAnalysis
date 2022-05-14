@@ -98,5 +98,6 @@ namespace ContourAnalysisDemo
             if (tbTemplateName.Text == "<template name>")
                 tbTemplateName.Text = "";
         }
+
     }
 }

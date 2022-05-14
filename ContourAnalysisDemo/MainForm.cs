@@ -19,6 +19,7 @@ using Emgu.CV.Structure;
 using ContourAnalysisNS;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Text;
 
 namespace ContourAnalysisDemo
 {
@@ -171,6 +172,7 @@ namespace ContourAnalysisDemo
                 Rectangle foundRect = found.sample.contour.SourceBoundingRect;
                 Point p1 = new Point((foundRect.Left + foundRect.Right)/2, foundRect.Top);
                 string text = found.template.name;
+                Console.WriteLine(text);
                 if (showAngle)
                     text += string.Format("\r\nangle={0:000}°\r\nscale={1:0.0}", 180 * found.angle / Math.PI, found.scale);
                 e.Graphics.DrawRectangle(borderPen, foundRect);
@@ -301,5 +303,30 @@ namespace ContourAnalysisDemo
         {
             new AutoGenerateForm(processor).ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "(*.txt) | *.txt";
+            sfd.RestoreDirectory = true;
+            if (sfd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    string templateFileq = sfd.FileName;
+                    using (StreamWriter sw = File.CreateText(templateFileq))
+                    {
+                        sw.WriteLine("Это");
+                        sw.WriteLine("созданный");
+                        sw.WriteLine("текст");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
     }
 }
