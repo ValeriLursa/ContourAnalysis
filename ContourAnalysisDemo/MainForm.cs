@@ -9,6 +9,7 @@
 //  Email: pavel_torgashov@mail.ru.
 //
 //  Copyright (C) Pavel Torgashov, 2011. 
+// пример
 
 using System;
 using System.Collections.Generic;
@@ -98,8 +99,8 @@ namespace ContourAnalysisDemo
             try
             {
                 _capture.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_WIDTH, camWidth);
-                _capture.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_HEIGHT, camHeight);
-                cbCamResolution.Text = camWidth + "x" + camHeight;
+               _capture.SetCaptureProperty(Emgu.CV.CvEnum.CAP_PROP.CV_CAP_PROP_FRAME_HEIGHT, camHeight);
+               cbCamResolution.Text = camWidth + "x" + camHeight;
             }
             catch (NullReferenceException ex)
             {
