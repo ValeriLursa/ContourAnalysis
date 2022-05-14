@@ -39,6 +39,7 @@
             this.nudMinACF = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.cbAllowAngleMore45 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.nudMinICF = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -74,7 +75,7 @@
             this.btTemplateEditor = new System.Windows.Forms.ToolStripButton();
             this.btAutoGenerate = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ibMain)).BeginInit();
             this.pnSettings.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -218,6 +219,15 @@
             this.cbAllowAngleMore45.Text = "Разрешить углы > 45";
             this.cbAllowAngleMore45.UseVisualStyleBackColor = true;
             this.cbAllowAngleMore45.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(190, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Макс. отклонение дескриптора ACF";
             // 
             // nudMinICF
             // 
@@ -444,8 +454,6 @@
             // cbCaptureFromCam
             // 
             this.cbCaptureFromCam.AutoSize = true;
-            this.cbCaptureFromCam.Checked = true;
-            this.cbCaptureFromCam.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCaptureFromCam.Location = new System.Drawing.Point(11, 16);
             this.cbCaptureFromCam.Name = "cbCaptureFromCam";
             this.cbCaptureFromCam.Size = new System.Drawing.Size(113, 17);
@@ -655,20 +663,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
+            // button2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Макс. отклонение дескриптора ACF";
+            this.button2.Location = new System.Drawing.Point(517, 430);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 452);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ibMain);
             this.Controls.Add(this.splitter1);
@@ -749,6 +759,7 @@
         private System.Windows.Forms.CheckBox cbAdaptiveNoiseFilter;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -38,6 +38,7 @@ namespace ContourAnalysisDemo
         int camWidth = 640;
         int camHeight = 480;
         string templateFile;
+        bool startCum = false;
 
         public MainForm()
         {
@@ -117,16 +118,20 @@ namespace ContourAnalysisDemo
         {
             try
             {
-                if (captureFromCam)
-                    frame = _capture.QueryFrame();
-                frameCount++;
-                //
-                processor.ProcessImage(frame);
-                //
-                if(cbShowBinarized.Checked)
-                    ibMain.Image = processor.binarizedFrame;
-                else
-                    ibMain.Image = frame;
+                if (startCum)
+                {
+                    if (captureFromCam)
+                        frame = _capture.QueryFrame();
+
+                    frameCount++;
+                    //
+                    //processor.ProcessImage(frame);
+                }
+                    if (cbShowBinarized.Checked)
+                        ibMain.Image = processor.binarizedFrame;
+                    else
+                        ibMain.Image = frame;
+                
             }
             catch (Exception ex)
             {
@@ -146,40 +151,41 @@ namespace ContourAnalysisDemo
 
         private void ibMain_Paint(object sender, PaintEventArgs e)
         {
-            if (frame == null) return;
+            if (frame == null)  return; 
+            
+                Font font = new Font(Font.FontFamily, 24);//16
+                //Отображение фпс при включенной камере
+                if (captureFromCam) e.Graphics.DrawString(lbFPS.Text, new Font(Font.FontFamily, 16), Brushes.Yellow, new PointF(1, 1));
 
-            Font font = new Font(Font.FontFamily, 24);//16
+                Brush bgBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
+                Brush foreBrush = new SolidBrush(Color.FromArgb(255, 255, 255, 255));
+                Pen borderPen = new Pen(Color.FromArgb(150, 0, 255, 0));
+                //
+                if (cbShowContours.Checked)
+                    foreach (var contour in processor.contours)
+                        if (contour.Total > 1)
+                            e.Graphics.DrawLines(Pens.Red, contour.ToArray());
+                //
+                lock (processor.foundTemplates)
+                    foreach (FoundTemplateDesc found in processor.foundTemplates)
+                    {
+                        if (found.template.name.EndsWith(".png") || found.template.name.EndsWith(".jpg"))
+                        {
+                            DrawAugmentedReality(found, e.Graphics);
+                            continue;
+                        }
 
-            e.Graphics.DrawString(lbFPS.Text, new Font(Font.FontFamily, 16), Brushes.Yellow, new PointF(1, 1));
-
-            Brush bgBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
-            Brush foreBrush = new SolidBrush(Color.FromArgb(255, 255, 255, 255));
-            Pen borderPen = new Pen(Color.FromArgb(150, 0, 255, 0));
-            //
-            if(cbShowContours.Checked)
-            foreach (var contour in processor.contours)
-                if(contour.Total>1)
-                e.Graphics.DrawLines(Pens.Red, contour.ToArray());
-            //
-            lock (processor.foundTemplates)
-            foreach (FoundTemplateDesc found in processor.foundTemplates)
-            {
-                if (found.template.name.EndsWith(".png") || found.template.name.EndsWith(".jpg"))
-                {
-                    DrawAugmentedReality(found, e.Graphics);
-                    continue;
-                }
-
-                Rectangle foundRect = found.sample.contour.SourceBoundingRect;
-                Point p1 = new Point((foundRect.Left + foundRect.Right)/2, foundRect.Top);
-                string text = found.template.name;
-                Console.WriteLine(text);
-                if (showAngle)
-                    text += string.Format("\r\nangle={0:000}°\r\nscale={1:0.0}", 180 * found.angle / Math.PI, found.scale);
-                e.Graphics.DrawRectangle(borderPen, foundRect);
-                e.Graphics.DrawString(text, font, bgBrush, new PointF(p1.X + 1 - font.Height/3, p1.Y + 1 - font.Height));
-                e.Graphics.DrawString(text, font, foreBrush, new PointF(p1.X - font.Height/3, p1.Y - font.Height));
-            }
+                        Rectangle foundRect = found.sample.contour.SourceBoundingRect;
+                        Point p1 = new Point((foundRect.Left + foundRect.Right) / 2, foundRect.Top);
+                        string text = found.template.name;
+                        
+                        if (showAngle)                        
+                            text += string.Format("\r\nangle={0:000}°\r\nscale={1:0.0}", 180 * found.angle / Math.PI, found.scale);
+                        e.Graphics.DrawRectangle(borderPen, foundRect);
+                        e.Graphics.DrawString(text, font, bgBrush, new PointF(p1.X + 1 - font.Height / 3, p1.Y + 1 - font.Height));
+                        e.Graphics.DrawString(text, font, foreBrush, new PointF(p1.X - font.Height / 3, p1.Y - font.Height));
+                    }
+                            
         }
 
         private void DrawAugmentedReality(FoundTemplateDesc found, Graphics gr)
@@ -203,6 +209,10 @@ namespace ContourAnalysisDemo
         private void cbAutoContrast_CheckedChanged(object sender, EventArgs e)
         {
             ApplySettings();
+            //Проверка состояния захвата камеры
+            if(cbCaptureFromCam.Checked)
+            //Запуск распознавания текста
+            startCum = true;
         }
 
         private void ApplySettings()
@@ -259,6 +269,8 @@ namespace ContourAnalysisDemo
                 {
                     MessageBox.Show(ex.Message);
                 }
+            //Запуск распознавания текста
+            startCum = true;
         }
 
         private void btCreateTemplate_Click(object sender, EventArgs e)
@@ -329,5 +341,16 @@ namespace ContourAnalysisDemo
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            processor.ProcessImage(frame);
+            foreach (FoundTemplateDesc found in processor.foundTemplates)
+            {
+                Rectangle foundRect = found.sample.contour.SourceBoundingRect;
+                Point p1 = new Point((foundRect.Left + foundRect.Right) / 2, foundRect.Top);
+                string text = found.template.name;
+                Console.WriteLine(text);
+            }
+        }
     }
 }
