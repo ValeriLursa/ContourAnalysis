@@ -345,23 +345,30 @@ namespace ContourAnalysisDemo
 
         private void button2_Click(object sender, EventArgs e)
         {
-            processor.ProcessImage(frame);
-            string textX = "";
-            string text = "";
-            string textY = "";
-            int x = 0;
-            foreach (FoundTemplateDesc found in processor.foundTemplates)
+            if (startCum)
             {
-               Rectangle foundRect = found.sample.contour.SourceBoundingRect;//<----this is rect of found contour (in source image coordinates)
-               Point p1 = new Point(foundRect.Left, foundRect.Top); // орпеделение координат левой вершины прямоугольника, который был нарисован вокруг распознанного символа
-                text += found.template.name + p1; // вывод распознонного символа и коордитан вершины прямоугольника, в который он обрисован.
+                processor.ProcessImage(frame);
+                string textX = "";
+                string text = "";
+                string textY = "";
+                int x = 0;
+                foreach (FoundTemplateDesc found in processor.foundTemplates)
+                {
+                    Rectangle foundRect = found.sample.contour.SourceBoundingRect;//<----this is rect of found contour (in source image coordinates)
+                    Point p1 = new Point(foundRect.Left, foundRect.Top); // орпеделение координат левой вершины прямоугольника, который был нарисован вокруг распознанного символа
+                    text += found.template.name + p1; // вывод распознонного символа и коордитан вершины прямоугольника, в который он обрисован.
 
-               // textX += processor.foundTemplates[x].template.startPoint.X.ToString() + ' ';
-               // textY += processor.foundTemplates[x].template.startPoint.X.ToString() + ' ';
-                x += 1;               
+                    // textX += processor.foundTemplates[x].template.startPoint.X.ToString() + ' ';
+                    // textY += processor.foundTemplates[x].template.startPoint.X.ToString() + ' ';
+                    x += 1;
+                }
+
+                Console.WriteLine(text);
             }
-            
-            Console.WriteLine(text);
+            else
+            {
+                MessageBox.Show("нет изображения для распознования");
+            }
         }
     }
 }
