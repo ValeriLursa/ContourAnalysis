@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvContours = new System.Windows.Forms.DataGridView();
+            this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTemplateName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContours)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,13 @@
             this.dgvContours.TabIndex = 0;
             this.dgvContours.VirtualMode = true;
             this.dgvContours.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvContours_CellPainting);
+            // 
+            // Column
+            // 
+            this.Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column.HeaderText = "Контур";
+            this.Column.Name = "Column";
+            this.Column.ReadOnly = true;
             // 
             // tbTemplateName
             // 
@@ -99,13 +106,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "введите имя шаблона или имя файла изображения (*.png, *.jpg)";
             // 
-            // Column
-            // 
-            this.Column.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column.HeaderText = "Контур";
-            this.Column.Name = "Column";
-            this.Column.ReadOnly = true;
-            // 
             // ShowContoursForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,7 +117,7 @@
             this.Controls.Add(this.tbTemplateName);
             this.Controls.Add(this.dgvContours);
             this.Name = "ShowContoursForm";
-            this.Text = "Создать шаблон";
+            this.Text = "Добавить шаблон";
             ((System.ComponentModel.ISupportInitialize)(this.dgvContours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -97,7 +97,7 @@
             this.ibMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibMain.Location = new System.Drawing.Point(0, 25);
             this.ibMain.Name = "ibMain";
-            this.ibMain.Size = new System.Drawing.Size(499, 405);
+            this.ibMain.Size = new System.Drawing.Size(530, 405);
             this.ibMain.TabIndex = 2;
             this.ibMain.TabStop = false;
             this.ibMain.Paint += new System.Windows.Forms.PaintEventHandler(this.ibMain_Paint);
@@ -112,15 +112,15 @@
             this.pnSettings.Controls.Add(this.groupBox1);
             this.pnSettings.Controls.Add(this.cbShowAngle);
             this.pnSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnSettings.Location = new System.Drawing.Point(504, 25);
+            this.pnSettings.Location = new System.Drawing.Point(535, 25);
             this.pnSettings.Name = "pnSettings";
-            this.pnSettings.Size = new System.Drawing.Size(209, 405);
+            this.pnSettings.Size = new System.Drawing.Size(241, 405);
             this.pnSettings.TabIndex = 3;
             // 
             // cbShowBinarized
             // 
             this.cbShowBinarized.AutoSize = true;
-            this.cbShowBinarized.Location = new System.Drawing.Point(6, 178);
+            this.cbShowBinarized.Location = new System.Drawing.Point(6, 274);
             this.cbShowBinarized.Name = "cbShowBinarized";
             this.cbShowBinarized.Size = new System.Drawing.Size(164, 17);
             this.cbShowBinarized.TabIndex = 21;
@@ -130,7 +130,7 @@
             // cbShowContours
             // 
             this.cbShowContours.AutoSize = true;
-            this.cbShowContours.Location = new System.Drawing.Point(95, 155);
+            this.cbShowContours.Location = new System.Drawing.Point(5, 251);
             this.cbShowContours.Name = "cbShowContours";
             this.cbShowContours.Size = new System.Drawing.Size(120, 17);
             this.cbShowContours.TabIndex = 20;
@@ -146,9 +146,9 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.nudMinICF);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(6, 317);
+            this.groupBox3.Location = new System.Drawing.Point(5, 394);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(182, 128);
+            this.groupBox3.Size = new System.Drawing.Size(216, 128);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Параметры распознавания";
@@ -207,7 +207,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Мин. АСФ";
+            this.label5.Text = "Мин. АКФ";
             // 
             // cbAllowAngleMore45
             // 
@@ -225,9 +225,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 13);
+            this.label6.Size = new System.Drawing.Size(195, 13);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Макс. отклонение дескриптора ACF";
+            this.label6.Text = "Макс. отклонение дескриптора АКФ";
             // 
             // nudMinICF
             // 
@@ -263,9 +263,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(100, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Мин. ИСФ";
+            this.label4.Text = "Мин. ВКФ";
             // 
             // groupBox2
             // 
@@ -275,9 +275,9 @@
             this.groupBox2.Controls.Add(this.nudMinContourLength);
             this.groupBox2.Controls.Add(this.nudMinContourArea);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(3, 220);
+            this.groupBox2.Location = new System.Drawing.Point(5, 297);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(182, 91);
+            this.groupBox2.Size = new System.Drawing.Size(219, 91);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Контурная фильтрация";
@@ -368,18 +368,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.cbAdaptiveNoiseFilter);
             this.groupBox1.Controls.Add(this.nudAdaptiveThBlockSize);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbBlur);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbCaptureFromCam);
             this.groupBox1.Controls.Add(this.cbCamResolution);
             this.groupBox1.Controls.Add(this.btLoadImage);
             this.groupBox1.Controls.Add(this.cbAutoContrast);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 146);
+            this.groupBox1.Size = new System.Drawing.Size(217, 219);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Источник";
@@ -389,7 +391,7 @@
             this.cbAdaptiveNoiseFilter.AutoSize = true;
             this.cbAdaptiveNoiseFilter.Checked = true;
             this.cbAdaptiveNoiseFilter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAdaptiveNoiseFilter.Location = new System.Drawing.Point(105, 123);
+            this.cbAdaptiveNoiseFilter.Location = new System.Drawing.Point(99, 188);
             this.cbAdaptiveNoiseFilter.Name = "cbAdaptiveNoiseFilter";
             this.cbAdaptiveNoiseFilter.Size = new System.Drawing.Size(96, 17);
             this.cbAdaptiveNoiseFilter.TabIndex = 13;
@@ -399,7 +401,7 @@
             // 
             // nudAdaptiveThBlockSize
             // 
-            this.nudAdaptiveThBlockSize.Location = new System.Drawing.Point(11, 122);
+            this.nudAdaptiveThBlockSize.Location = new System.Drawing.Point(5, 187);
             this.nudAdaptiveThBlockSize.Maximum = new decimal(new int[] {
             400,
             0,
@@ -423,7 +425,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 106);
+            this.label7.Location = new System.Drawing.Point(2, 171);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(184, 13);
             this.label7.TabIndex = 12;
@@ -434,7 +436,7 @@
             this.cbBlur.AutoSize = true;
             this.cbBlur.Checked = true;
             this.cbBlur.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbBlur.Location = new System.Drawing.Point(106, 84);
+            this.cbBlur.Location = new System.Drawing.Point(100, 149);
             this.cbBlur.Name = "cbBlur";
             this.cbBlur.Size = new System.Drawing.Size(78, 17);
             this.cbBlur.TabIndex = 6;
@@ -445,7 +447,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-5, 35);
+            this.label1.Location = new System.Drawing.Point(4, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 13);
             this.label1.TabIndex = 4;
@@ -454,7 +456,7 @@
             // cbCaptureFromCam
             // 
             this.cbCaptureFromCam.AutoSize = true;
-            this.cbCaptureFromCam.Location = new System.Drawing.Point(11, 16);
+            this.cbCaptureFromCam.Location = new System.Drawing.Point(4, 80);
             this.cbCaptureFromCam.Name = "cbCaptureFromCam";
             this.cbCaptureFromCam.Size = new System.Drawing.Size(113, 17);
             this.cbCaptureFromCam.TabIndex = 2;
@@ -470,7 +472,7 @@
             "800x600",
             "640x480",
             "320x240"});
-            this.cbCamResolution.Location = new System.Drawing.Point(11, 51);
+            this.cbCamResolution.Location = new System.Drawing.Point(7, 116);
             this.cbCamResolution.Name = "cbCamResolution";
             this.cbCamResolution.Size = new System.Drawing.Size(89, 21);
             this.cbCamResolution.TabIndex = 3;
@@ -479,18 +481,18 @@
             // btLoadImage
             // 
             this.btLoadImage.Enabled = false;
-            this.btLoadImage.Location = new System.Drawing.Point(105, 38);
+            this.btLoadImage.Location = new System.Drawing.Point(6, 19);
             this.btLoadImage.Name = "btLoadImage";
-            this.btLoadImage.Size = new System.Drawing.Size(68, 35);
+            this.btLoadImage.Size = new System.Drawing.Size(88, 55);
             this.btLoadImage.TabIndex = 5;
-            this.btLoadImage.Text = "Распознать образ из файла...";
+            this.btLoadImage.Text = "Загрузить изображение из файла...";
             this.btLoadImage.UseVisualStyleBackColor = true;
             this.btLoadImage.Click += new System.EventHandler(this.btLoadImage_Click);
             // 
             // cbAutoContrast
             // 
             this.cbAutoContrast.AutoSize = true;
-            this.cbAutoContrast.Location = new System.Drawing.Point(11, 84);
+            this.cbAutoContrast.Location = new System.Drawing.Point(5, 149);
             this.cbAutoContrast.Name = "cbAutoContrast";
             this.cbAutoContrast.Size = new System.Drawing.Size(96, 17);
             this.cbAutoContrast.TabIndex = 1;
@@ -501,7 +503,7 @@
             // cbShowAngle
             // 
             this.cbShowAngle.AutoSize = true;
-            this.cbShowAngle.Location = new System.Drawing.Point(6, 155);
+            this.cbShowAngle.Location = new System.Drawing.Point(6, 228);
             this.cbShowAngle.Name = "cbShowAngle";
             this.cbShowAngle.Size = new System.Drawing.Size(102, 17);
             this.cbShowAngle.TabIndex = 0;
@@ -517,7 +519,7 @@
             this.lbRecognized});
             this.ssMain.Location = new System.Drawing.Point(0, 430);
             this.ssMain.Name = "ssMain";
-            this.ssMain.Size = new System.Drawing.Size(713, 22);
+            this.ssMain.Size = new System.Drawing.Size(776, 22);
             this.ssMain.TabIndex = 4;
             this.ssMain.Text = "statusStrip1";
             // 
@@ -559,7 +561,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(499, 25);
+            this.splitter1.Location = new System.Drawing.Point(530, 25);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(5, 405);
             this.splitter1.TabIndex = 5;
@@ -583,7 +585,7 @@
             this.btAutoGenerate});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(713, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(776, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -654,21 +656,21 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(621, 429);
+            this.button1.Location = new System.Drawing.Point(102, 48);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(109, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Сохранить текст";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(517, 430);
+            this.button2.Location = new System.Drawing.Point(100, 19);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(111, 23);
             this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
+            this.button2.Text = "Распознать изображение";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -676,9 +678,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 452);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(776, 452);
             this.Controls.Add(this.ibMain);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pnSettings);

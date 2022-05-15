@@ -270,6 +270,7 @@ namespace ContourAnalysisDemo
                 {
                     MessageBox.Show(ex.Message);
                 }
+            else return;
             //Запуск распознавания текста
             startCum = true;
         }
