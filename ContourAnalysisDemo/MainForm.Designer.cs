@@ -50,11 +50,13 @@
             this.nudMinContourArea = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.cbAdaptiveNoiseFilter = new System.Windows.Forms.CheckBox();
             this.nudAdaptiveThBlockSize = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbBlur = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbCaptureFromCam = new System.Windows.Forms.CheckBox();
             this.cbCamResolution = new System.Windows.Forms.ComboBox();
             this.btLoadImage = new System.Windows.Forms.Button();
@@ -74,8 +76,6 @@
             this.btCreateTemplate = new System.Windows.Forms.ToolStripButton();
             this.btTemplateEditor = new System.Windows.Forms.ToolStripButton();
             this.btAutoGenerate = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ibMain)).BeginInit();
             this.pnSettings.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -386,6 +386,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Источник";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(102, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Сохранить текст";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(100, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Распознать изображение";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // cbAdaptiveNoiseFilter
             // 
             this.cbAdaptiveNoiseFilter.AutoSize = true;
@@ -422,6 +442,15 @@
             0});
             this.nudAdaptiveThBlockSize.ValueChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Разрешение камеры";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -443,15 +472,6 @@
             this.cbBlur.Text = "Размытие";
             this.cbBlur.UseVisualStyleBackColor = true;
             this.cbBlur.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Разрешение камеры";
             // 
             // cbCaptureFromCam
             // 
@@ -652,27 +672,8 @@
             this.btAutoGenerate.Name = "btAutoGenerate";
             this.btAutoGenerate.Size = new System.Drawing.Size(23, 22);
             this.btAutoGenerate.Text = "Auto generate templates";
+            this.btAutoGenerate.Visible = false;
             this.btAutoGenerate.Click += new System.EventHandler(this.btAutoGenerate_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(102, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Сохранить текст";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(100, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Распознать изображение";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 

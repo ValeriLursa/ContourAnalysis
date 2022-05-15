@@ -145,9 +145,9 @@ namespace ContourAnalysisDemo
             lbFPS.Text = (frameCount - oldFrameCount) + " fps";
             oldFrameCount = frameCount;
             if (processor.contours!=null)
-                lbContoursCount.Text = "Contours: "+processor.contours.Count;
+                lbContoursCount.Text = "Всего контуров: "+processor.contours.Count;
             if (processor.foundTemplates != null)
-                lbRecognized.Text = "Recognized contours: " + processor.foundTemplates.Count;
+                lbRecognized.Text = "Распознанно контуров: " + processor.foundTemplates.Count;
         }
 
         private void ibMain_Paint(object sender, PaintEventArgs e)
