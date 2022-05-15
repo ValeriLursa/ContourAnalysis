@@ -57,8 +57,8 @@ namespace ContourAnalysisNS
                         continue;
                 }
                 if (template.preferredAngleNoMore90 && Math.Abs(interCorr.Angle) >= Math.PI / 2)
-                    continue;//unsuitable angle
-                //find max rate
+                    continue;//неподходящий угол
+                //найти максимальную скорость
                 if (r >= rate)
                 {
                     rate = r;
@@ -66,7 +66,7 @@ namespace ContourAnalysisNS
                     angle = interCorr.Angle;
                 }
             }
-            //ignore antipatterns
+            //игнорировать антипаттерны
             if (foundTemplate != null && foundTemplate.name == antiPatternName)
                 foundTemplate = null;
             //
