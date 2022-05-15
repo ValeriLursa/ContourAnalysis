@@ -97,7 +97,7 @@
             this.ibMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibMain.Location = new System.Drawing.Point(0, 25);
             this.ibMain.Name = "ibMain";
-            this.ibMain.Size = new System.Drawing.Size(530, 405);
+            this.ibMain.Size = new System.Drawing.Size(511, 405);
             this.ibMain.TabIndex = 2;
             this.ibMain.TabStop = false;
             this.ibMain.Paint += new System.Windows.Forms.PaintEventHandler(this.ibMain_Paint);
@@ -112,9 +112,9 @@
             this.pnSettings.Controls.Add(this.groupBox1);
             this.pnSettings.Controls.Add(this.cbShowAngle);
             this.pnSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnSettings.Location = new System.Drawing.Point(535, 25);
+            this.pnSettings.Location = new System.Drawing.Point(516, 25);
             this.pnSettings.Name = "pnSettings";
-            this.pnSettings.Size = new System.Drawing.Size(241, 405);
+            this.pnSettings.Size = new System.Drawing.Size(260, 405);
             this.pnSettings.TabIndex = 3;
             // 
             // cbShowBinarized
@@ -277,7 +277,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(5, 297);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(219, 91);
+            this.groupBox2.Size = new System.Drawing.Size(235, 91);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Контурная фильтрация";
@@ -341,7 +341,7 @@
             // 
             // nudMinContourArea
             // 
-            this.nudMinContourArea.Location = new System.Drawing.Point(100, 34);
+            this.nudMinContourArea.Location = new System.Drawing.Point(117, 34);
             this.nudMinContourArea.Maximum = new decimal(new int[] {
             400,
             0,
@@ -360,7 +360,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(97, 18);
+            this.label3.Location = new System.Drawing.Point(114, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 10;
@@ -381,7 +381,7 @@
             this.groupBox1.Controls.Add(this.cbAutoContrast);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 219);
+            this.groupBox1.Size = new System.Drawing.Size(235, 219);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Источник";
@@ -581,7 +581,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(530, 25);
+            this.splitter1.Location = new System.Drawing.Point(511, 25);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(5, 405);
             this.splitter1.TabIndex = 5;
