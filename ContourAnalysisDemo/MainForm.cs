@@ -283,7 +283,7 @@ namespace ContourAnalysisDemo
 
         private void btNewTemplates_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to create new template database?", "Create new template database", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Создать новый набор шаблонов?", "Создать новый набор шаблонов", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 processor.templates.Clear();
         }
 

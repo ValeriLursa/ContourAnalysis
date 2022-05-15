@@ -71,9 +71,9 @@
             this.tbTemplateName.ForeColor = System.Drawing.Color.Gray;
             this.tbTemplateName.Location = new System.Drawing.Point(205, 431);
             this.tbTemplateName.Name = "tbTemplateName";
-            this.tbTemplateName.Size = new System.Drawing.Size(114, 20);
+            this.tbTemplateName.Size = new System.Drawing.Size(133, 20);
             this.tbTemplateName.TabIndex = 1;
-            this.tbTemplateName.Text = "<имя шаблона>";
+            this.tbTemplateName.Text = "<расшифровка контура>";
             this.tbTemplateName.Enter += new System.EventHandler(this.tbTemplateName_Enter);
             // 
             // label1
@@ -92,7 +92,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Добавить выбранный контур в качестве шаблона:";
+            this.button1.Text = "Добавить выбранный контур:";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -100,7 +100,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(326, 431);
+            this.label2.Location = new System.Drawing.Point(345, 429);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(174, 29);
             this.label2.TabIndex = 4;
