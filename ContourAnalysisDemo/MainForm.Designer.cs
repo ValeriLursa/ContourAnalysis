@@ -50,11 +50,13 @@
             this.nudMinContourArea = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.cbAdaptiveNoiseFilter = new System.Windows.Forms.CheckBox();
             this.nudAdaptiveThBlockSize = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbBlur = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbCaptureFromCam = new System.Windows.Forms.CheckBox();
             this.cbCamResolution = new System.Windows.Forms.ComboBox();
             this.btLoadImage = new System.Windows.Forms.Button();
@@ -74,8 +76,6 @@
             this.btCreateTemplate = new System.Windows.Forms.ToolStripButton();
             this.btTemplateEditor = new System.Windows.Forms.ToolStripButton();
             this.btAutoGenerate = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ibMain)).BeginInit();
             this.pnSettings.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -97,7 +97,7 @@
             this.ibMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibMain.Location = new System.Drawing.Point(0, 25);
             this.ibMain.Name = "ibMain";
-            this.ibMain.Size = new System.Drawing.Size(530, 405);
+            this.ibMain.Size = new System.Drawing.Size(511, 405);
             this.ibMain.TabIndex = 2;
             this.ibMain.TabStop = false;
             this.ibMain.Paint += new System.Windows.Forms.PaintEventHandler(this.ibMain_Paint);
@@ -112,9 +112,9 @@
             this.pnSettings.Controls.Add(this.groupBox1);
             this.pnSettings.Controls.Add(this.cbShowAngle);
             this.pnSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnSettings.Location = new System.Drawing.Point(535, 25);
+            this.pnSettings.Location = new System.Drawing.Point(516, 25);
             this.pnSettings.Name = "pnSettings";
-            this.pnSettings.Size = new System.Drawing.Size(241, 405);
+            this.pnSettings.Size = new System.Drawing.Size(260, 405);
             this.pnSettings.TabIndex = 3;
             // 
             // cbShowBinarized
@@ -277,7 +277,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(5, 297);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(219, 91);
+            this.groupBox2.Size = new System.Drawing.Size(235, 91);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Контурная фильтрация";
@@ -341,7 +341,7 @@
             // 
             // nudMinContourArea
             // 
-            this.nudMinContourArea.Location = new System.Drawing.Point(100, 34);
+            this.nudMinContourArea.Location = new System.Drawing.Point(117, 34);
             this.nudMinContourArea.Maximum = new decimal(new int[] {
             400,
             0,
@@ -360,7 +360,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(97, 18);
+            this.label3.Location = new System.Drawing.Point(114, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 10;
@@ -381,10 +381,30 @@
             this.groupBox1.Controls.Add(this.cbAutoContrast);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 219);
+            this.groupBox1.Size = new System.Drawing.Size(235, 219);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Источник";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(102, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Сохранить текст";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(100, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Распознать изображение";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbAdaptiveNoiseFilter
             // 
@@ -422,6 +442,15 @@
             0});
             this.nudAdaptiveThBlockSize.ValueChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Разрешение камеры";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -443,15 +472,6 @@
             this.cbBlur.Text = "Размытие";
             this.cbBlur.UseVisualStyleBackColor = true;
             this.cbBlur.CheckedChanged += new System.EventHandler(this.cbAutoContrast_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Разрешение камеры";
             // 
             // cbCaptureFromCam
             // 
@@ -561,7 +581,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(530, 25);
+            this.splitter1.Location = new System.Drawing.Point(511, 25);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(5, 405);
             this.splitter1.TabIndex = 5;
@@ -652,27 +672,8 @@
             this.btAutoGenerate.Name = "btAutoGenerate";
             this.btAutoGenerate.Size = new System.Drawing.Size(23, 22);
             this.btAutoGenerate.Text = "Auto generate templates";
+            this.btAutoGenerate.Visible = false;
             this.btAutoGenerate.Click += new System.EventHandler(this.btAutoGenerate_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(102, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Сохранить текст";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(100, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Распознать изображение";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainForm
             // 
