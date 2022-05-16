@@ -21,6 +21,7 @@ using ContourAnalysisNS;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace ContourAnalysisDemo
 {
@@ -343,27 +344,111 @@ namespace ContourAnalysisDemo
             }
         }
 
+        class YearComparer1 : IComparer<string[]>
+        {
+            public int Compare(string[] o1, string[] o2)
+            {
+                int a = Convert.ToInt32(o1[1]);
+                int b = Convert.ToInt32(o2[1]);
+
+                if (a > b)
+                {
+                    return 1;
+                }
+                else if (a < b)
+                {
+                    return -1;
+                }
+
+                return 0;
+            }
+        }
+
+        class YearComparer : IComparer<string[]>
+        {
+            public int Compare(string[] o1, string[] o2)
+            {
+                int x1 = Convert.ToInt32(o1[1]);
+                int x2 = Convert.ToInt32(o2[1]);
+                int y1 = Convert.ToInt32(o1[2]);
+                int y2 = Convert.ToInt32(o2[2]);
+
+                if (x1 > x2)
+                {
+                    if (y1 > y2 + 5)
+                        return -1;
+                    return 1;
+                }
+                else if (x1 < x2)
+                {
+                    if (y1 > y2 + 5)
+                        return 1;
+                    return -1;
+                }
+
+                return 0;
+            }
+        }
+
+        static void OutputList(List<string[]> list)
+        {
+            string time = "";
+           // object prev = null;
+           // object current = null;
+           // int tick = 0;
+            foreach (string[] next in list)
+            {
+             //   if (prev != null & current != null)
+              //  {
+                   // if (Convert.ToInt32(current[1]) > Convert.ToInt32(prev[1])+5)
+               //     {
+                        // do stuff
+              //      }
+              //  }
+             //   if (tick == 0)
+             //   {
+              //      prev = next;
+               //     tick = 1;
+             //   }
+             //   else
+             //   {
+             //       current = next;
+             //       tick = 0;
+            //    }
+                time += next[0]+'-'+'X'+ next[1]+';'+'Y'+ next[2]+' ';
+            }
+                Console.WriteLine(time);       
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (startCum)
             {
-                processor.ProcessImage(frame);
-                string textX = "";
-                string text = "";
-                string textY = "";
-                int x = 0;
+                processor.ProcessImage(frame);                
+                string text = "";              
+               // int x = 0;
+
+                List<string[]> points = new List<string[]>();
                 foreach (FoundTemplateDesc found in processor.foundTemplates)
                 {
                     Rectangle foundRect = found.sample.contour.SourceBoundingRect;//<----this is rect of found contour (in source image coordinates)
                     Point p1 = new Point(foundRect.Left, foundRect.Top); // орпеделение координат левой вершины прямоугольника, который был нарисован вокруг распознанного символа
-                    text += found.template.name + p1; // вывод распознонного символа и коордитан вершины прямоугольника, в который он обрисован.
+                    points.Add(new string[]{found.template.name, Convert.ToString(p1.X), Convert.ToString(p1.Y) });
+                    //text += found.template.name + p1; // вывод распознонного символа и коордитан вершины прямоугольника, в который он обрисован.                                      
+                    //x += 1;                   
+                }                                
+               // var sorted = points.OrderBy(z => z.X).OrderBy(z => z.Y);                
+               // MessageBox.Show(string.Join(" ", sorted));
+               // Console.WriteLine(sorted);
 
-                    // textX += processor.foundTemplates[x].template.startPoint.X.ToString() + ' ';
-                    // textY += processor.foundTemplates[x].template.startPoint.X.ToString() + ' ';
-                    x += 1;
-                }
+                YearComparer yc = new YearComparer();
+               // YearComparer1 yc1 = new YearComparer1();
 
-                Console.WriteLine(text);
+               points.Sort(yc);
+               //points.Sort(yc1);
+                OutputList(points);
+
+
             }
             else
             {
