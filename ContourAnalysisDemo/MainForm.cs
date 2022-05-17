@@ -42,6 +42,7 @@ namespace ContourAnalysisDemo
         int camHeight = 480;
         string templateFile;
         bool startCum = false;
+        string textSave = "";
 
         public MainForm()
         {
@@ -335,9 +336,9 @@ namespace ContourAnalysisDemo
                         string templateFileq = sfd.FileName;
                         using (StreamWriter sw = File.CreateText(templateFileq))
                         {
-                            sw.WriteLine("Это");
-                            sw.WriteLine("созданный");
-                            sw.WriteLine("текст");
+                            Console.WriteLine(textSave);
+                            sw.WriteLine(textSave);
+                            
                         }
                     }
                     catch (Exception ex)
@@ -437,7 +438,7 @@ namespace ContourAnalysisDemo
             }
         }
 
-        static void OutputList(List<string[]> list)
+        static string OutputList(List<string[]> list, string textSave)
         {
             string time = "";
             string strok = null;
@@ -457,6 +458,7 @@ namespace ContourAnalysisDemo
                             if ((Convert.ToInt32(current[2]) - Convert.ToInt32(y)) > Convert.ToInt32(hight)/2)
                             {
                                 Console.WriteLine(time);
+                                textSave += time + "\n";
                                 time = current[0];
                                 strok = current[1];
                                 work = current[3];
@@ -479,6 +481,7 @@ namespace ContourAnalysisDemo
                             if ((Convert.ToInt32(current[2]) - Convert.ToInt32(y)) > Convert.ToInt32(hight)/2)
                             {
                                 Console.WriteLine(time);
+                                textSave += time + "\n";
                                 time = current[0];
                                 strok = current[1];
                                 work = current[3];
@@ -505,7 +508,9 @@ namespace ContourAnalysisDemo
                 time += current[0]+'-'+'H'+ current[4]+';'+'Y'+ current[2]+' ';
                 
             }
-                Console.WriteLine(time);       
+                Console.WriteLine(time);
+            textSave += time + "\n";
+            return textSave;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -534,7 +539,7 @@ namespace ContourAnalysisDemo
 
                points.Sort(yc);
                //points.Sort(yc1);
-                OutputList(points);
+                textSave = OutputList(points, "");
 
 
             }
