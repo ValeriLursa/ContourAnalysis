@@ -367,7 +367,7 @@ namespace ContourAnalysisDemo
             }
             else
             {
-                MessageBox.Show("нет изображения для распознования");
+                MessageBox.Show("Нет изображения для распознования");
             }
         }
     }
