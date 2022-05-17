@@ -324,25 +324,31 @@ namespace ContourAnalysisDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "(*.txt) | *.txt";
-            sfd.RestoreDirectory = true;
-            if (sfd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-            {
-                try
+            if (startCum) {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "(*.txt) | *.txt";
+                sfd.RestoreDirectory = true;
+                if (sfd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
                 {
-                    string templateFileq = sfd.FileName;
-                    using (StreamWriter sw = File.CreateText(templateFileq))
+                    try
                     {
-                        sw.WriteLine("Это");
-                        sw.WriteLine("созданный");
-                        sw.WriteLine("текст");
+                        string templateFileq = sfd.FileName;
+                        using (StreamWriter sw = File.CreateText(templateFileq))
+                        {
+                            sw.WriteLine("Это");
+                            sw.WriteLine("созданный");
+                            sw.WriteLine("текст");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Нет изображения для распознавания");
             }
         }
 
@@ -534,7 +540,7 @@ namespace ContourAnalysisDemo
             }
             else
             {
-                MessageBox.Show("Нет изображения для распознования");
+                MessageBox.Show("Нет изображения для распознавания");
             }
         }
     }
