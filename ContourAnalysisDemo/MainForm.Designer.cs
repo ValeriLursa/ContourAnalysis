@@ -672,7 +672,6 @@
             this.btAutoGenerate.Name = "btAutoGenerate";
             this.btAutoGenerate.Size = new System.Drawing.Size(23, 22);
             this.btAutoGenerate.Text = "Auto generate templates";
-            this.btAutoGenerate.Visible = false;
             this.btAutoGenerate.Click += new System.EventHandler(this.btAutoGenerate_Click);
             // 
             // MainForm

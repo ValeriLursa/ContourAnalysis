@@ -23,6 +23,8 @@ using System.IO;
 using System.Text;
 using System.Linq;
 
+
+
 namespace ContourAnalysisDemo
 {
     public partial class MainForm : Form
@@ -364,6 +366,8 @@ namespace ContourAnalysisDemo
             }
         }
 
+        
+
         class YearComparer : IComparer<string[]>
         {
             public int Compare(string[] o1, string[] o2)
@@ -372,20 +376,57 @@ namespace ContourAnalysisDemo
                 int x2 = Convert.ToInt32(o2[1]);
                 int y1 = Convert.ToInt32(o1[2]);
                 int y2 = Convert.ToInt32(o2[2]);
-
-                if (x1 > x2)
+                if (y1-y2>0)
                 {
-                    if (y1 > y2 + 5)
-                        return -1;
-                    return 1;
+                    if (y1 - y2 > 15)
+                    {
+                        if (x1 + y1 * 30 > x2 + y2 * 30)
+                        {
+                            return 1;
+                        }
+                        else if (x1 + y1 * 30 < x2 + y2 * 30)
+                        {
+                            return -1;
+                        }
+                    }
+                    else
+                    {
+                        if (x1 + y1 > x2 + y2)
+                        {
+                            return 1;
+                        }
+                        else if (x1 + y1 < x2 + y2)
+                        {
+                            return -1;
+                        }
+                    }
                 }
-                else if (x1 < x2)
+                else
                 {
-                    if (y1 > y2 + 5)
-                        return 1;
-                    return -1;
+                    if(y2-y1 > 15)
+                    {
+                        if (x1 + y1 * 30 > x2 + y2 * 30)
+                        {
+                            return 1;
+                        }
+                        else if (x1 + y1 * 30 < x2 + y2 * 30)
+                        {
+                            return -1;
+                        }
+                    }
+                    else
+                    {
+                        if (x1 + y1 > x2 + y2)
+                        {
+                            return 1;
+                        }
+                        else if (x1 + y1 < x2 + y2)
+                        {
+                            return -1;
+                        }
+                    }
                 }
-
+              
                 return 0;
             }
         }
@@ -393,29 +434,70 @@ namespace ContourAnalysisDemo
         static void OutputList(List<string[]> list)
         {
             string time = "";
-           // object prev = null;
-           // object current = null;
-           // int tick = 0;
-            foreach (string[] next in list)
+            string strok = null;
+            string hight = null;
+            string work = null;
+            string y = null;
+            int tick = 0;
+            foreach (string[] current in list)
             {
-             //   if (prev != null & current != null)
-              //  {
-                   // if (Convert.ToInt32(current[1]) > Convert.ToInt32(prev[1])+5)
-               //     {
-                        // do stuff
-              //      }
-              //  }
-             //   if (tick == 0)
-             //   {
-              //      prev = next;
-               //     tick = 1;
-             //   }
-             //   else
-             //   {
-             //       current = next;
-             //       tick = 0;
-            //    }
-                time += next[0]+'-'+'X'+ next[1]+';'+'Y'+ next[2]+' ';
+                if (tick == 0)
+                {
+                    if (strok != null)
+                    {
+                        if (Convert.ToInt32(current[1]) - (Convert.ToInt32(strok) + Convert.ToInt32(work)) > (Convert.ToInt32(work) + Convert.ToInt32(current[3]))/3)
+                        {
+                            // if (Convert.ToInt32(current[1]) - Convert.ToInt32(strok) < 15)
+                            if ((Convert.ToInt32(current[2]) - Convert.ToInt32(y)) > Convert.ToInt32(hight)/2)
+                            {
+                                Console.WriteLine(time);
+                                time = current[0];
+                                strok = current[1];
+                                work = current[3];
+                                hight = current[4];
+                                y = current[2];
+                            }
+                            else
+                            {
+                                time += ' ' + current[0];
+                                strok = current[1];
+                                work = current[3];
+                                hight = current[4];
+                                y = current[2];
+                            }
+
+                        }
+                        else
+                        {
+                            //   if (Convert.ToInt32(current[1]) - Convert.ToInt32(strok) < 15)
+                            if ((Convert.ToInt32(current[2]) - Convert.ToInt32(y)) > Convert.ToInt32(hight)/2)
+                            {
+                                Console.WriteLine(time);
+                                time = current[0];
+                                strok = current[1];
+                                work = current[3];
+                                hight = current[4];
+                                y = current[2];
+                            }
+                            else
+                                time += current[0];
+                            strok = current[1];
+                            work = current[3];
+                            hight = current[4];
+                            y = current[2];
+                        }
+
+
+                    }
+                    else
+                        time = current[0];
+                    strok = current[1];
+                    work = current[3];
+                    y = current[2];
+                }
+                else             
+                time += current[0]+'-'+'H'+ current[4]+';'+'Y'+ current[2]+' ';
+                
             }
                 Console.WriteLine(time);       
         }
@@ -432,8 +514,8 @@ namespace ContourAnalysisDemo
                 foreach (FoundTemplateDesc found in processor.foundTemplates)
                 {
                     Rectangle foundRect = found.sample.contour.SourceBoundingRect;//<----this is rect of found contour (in source image coordinates)
-                    Point p1 = new Point(foundRect.Left, foundRect.Top); // орпеделение координат левой вершины прямоугольника, который был нарисован вокруг распознанного символа
-                    points.Add(new string[]{found.template.name, Convert.ToString(p1.X), Convert.ToString(p1.Y) });
+                    Point p1 = new Point(foundRect.Left, foundRect.Bottom); // орпеделение координат левой вершины прямоугольника, который был нарисован вокруг распознанного символа
+                    points.Add(new string[]{found.template.name, Convert.ToString(p1.X), Convert.ToString(p1.Y), Convert.ToString(foundRect.Width), Convert.ToString(foundRect.Height)});
                     //text += found.template.name + p1; // вывод распознонного символа и коордитан вершины прямоугольника, в который он обрисован.                                      
                     //x += 1;                   
                 }                                
