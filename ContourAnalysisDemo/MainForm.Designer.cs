@@ -574,7 +574,7 @@
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.lbRecognized.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.lbRecognized.Name = "lbRecognized";
-            this.lbRecognized.Size = new System.Drawing.Size(150, 17);
+            this.lbRecognized.Size = new System.Drawing.Size(170, 17);
             this.lbRecognized.Text = "Распознанные контуры:";
             this.lbRecognized.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -672,6 +672,7 @@
             this.btAutoGenerate.Name = "btAutoGenerate";
             this.btAutoGenerate.Size = new System.Drawing.Size(23, 22);
             this.btAutoGenerate.Text = "Auto generate templates";
+            this.btAutoGenerate.Visible = false;
             this.btAutoGenerate.Click += new System.EventHandler(this.btAutoGenerate_Click);
             // 
             // MainForm
